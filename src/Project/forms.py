@@ -41,6 +41,8 @@ class RouteDetalisForm(forms.ModelForm):
         fields = '__all__'
 
 
+
+
 # Employee
 
 class addEmployeeform(ModelForm):
