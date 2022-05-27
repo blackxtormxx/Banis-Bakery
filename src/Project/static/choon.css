@@ -1,0 +1,37 @@
+.header1{
+
+    position:relative;
+    animation:mymove 4s infinite;
+   
+ 
+}
+@keyframes mymove{
+    from{left:0px;}
+    to{left: 850px;}
+}
+.special{
+
+    position:relative;
+    bottom: 20;
+    border: 2px solid rgb(5, 2, 2);
+    text-align: center;
+    border-radius: 50px 50px;
+    font-size: 20px;
+    color: aliceblue;
+    font-style:initial; 
+    left: 800;
+    width: 250;
+    background-color:gold;
+    cursor: pointer;
+    }
+h1{
+    color:black;
+    font-size: 35px;
+    top: 10;
+    font-weight: 500;
+        
+       
+}    
+body{
+    background-color: #e7b565;
+}

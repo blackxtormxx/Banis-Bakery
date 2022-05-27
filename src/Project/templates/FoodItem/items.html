@@ -1,0 +1,59 @@
+{% extends 'FoodItem/main.html' %}
+{% load static %}
+{% block content %}
+
+    <h1 style="margin-left: 50%; margin-bottom: 50px;">OUR MENU </h1>
+
+<br>
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="card">
+                <div class="card-header">
+                    Categories
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                        <a href="{% url 'view' %}">All</a>
+                    </li>
+                    {% for category in category %}
+                    <li class=" list-group-item">
+                        <a href="{% url 'view' %}?category={{category.Name}}">
+                            {{category.Name}}
+                        </a>
+                    </li>
+                    {% endfor %}
+
+
+                   
+                  
+                </ul>
+            </div>
+
+        </div>
+        <div class="col-md-9">
+            <div class="row">
+
+                {% for items in items %}
+                <div class="col-lg-4">
+                  
+                        <img class="thumbnail" src="{{items.picture.url}}" alt="Card image cap">
+
+                        <div class="box-element product">
+                            <h6><strong>{{items.name}}</strong></h6>
+
+                    <hr>
+                <button  class="btn btn-outline-secondary add-btn">Add to Cart</button>
+				<a href="{% url 'photo' items.id %}" class="btn btn-outline-success">View</a>
+				<h5 style="display: inline-block; float: right"><strong>Rs.{{items.price}}</strong></h5>
+                    </div>
+                </div>
+               
+                {% endfor %}
+
+
+            </div>
+    </div>
+</div>
+</div>
+{% endblock %}

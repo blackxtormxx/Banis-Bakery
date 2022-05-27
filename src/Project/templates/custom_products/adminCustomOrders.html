@@ -1,0 +1,121 @@
+{% load widget_tweaks %}
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Dashboard</title>
+        <link rel="stylesheet" href="{% static '/admin_main.css' %}">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css">
+        
+    
+    </head>
+
+    <body>
+        {% comment %} navbar {% endcomment %}
+        <section id="nav-bar">
+            <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="{% url 'home_page' %}"><img src="{% static 'images/logo2-w.png' %}"></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="{% url 'admin_dashboard' %}">Dashboard</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="{% url 'special_orders' %}">Special Orders</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">.........</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">.........</a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+            </nav>
+        </section>
+
+        {% comment %} admin side Custom order details {% endcomment %}
+        <div class="container-{breakpoint}">
+          <div class="col-md">
+            <div class="card card-body">
+                <h4 >Special Orders</h4>
+            </div>
+            <br>
+
+            <div class="card card-body">
+                <form method="GET">
+
+                  {% for field in myFilter.form %}
+                    {{field.label}}
+                    {{field|add_class:'form-control-sm'}}
+                  {% endfor %}
+
+                  <button class="btn btn-primary" type="submit">Search</button>
+
+                </form>
+            </div>
+
+            <div class="card card-body">
+              <table class="table table-striped table-hover">
+                <thead class="table-dark">
+                  <tr>
+                    {% comment %} <th>ID</th> {% endcomment %}
+                    <th>Status</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Address</th>
+                    <th>Phone</th>
+                    <th>Delivery Type</th>
+                    <th>Description</th>
+                    <th>Date Created</th>
+                    <th>Update</th>
+                    <th>Remove</th>
+                  </tr>
+                <thead>
+
+                <tbody>
+                  {% for i in cusorder %}
+
+                    <tr>
+                      {% comment %} <td>{{i.}}</td> {% endcomment %}
+                      <td>{{i.status}}</td>
+                      <td>{{i.name}}</td>
+                      <td>{{i.email}}</td>
+                      <td>{{i.address}}</td>
+                      <td>{{i.phone}}</td>
+                      <td>{{i.delivery}}</td>
+                      <td>{{i.description}}</td>
+                      <td>{{i.date_created}}</td>
+                      <td><a href="{% url 'update_CustomOrder' i.id %}" class="btn btn-sm btn-info">Update</a></td>
+                      <td><a href="{% url 'delete_CustomOrder' i.id %}" class="btn btn-sm btn-danger">Delete</a></td>
+                    </tr>
+                  {% endfor %}
+                </tbody>
+                
+              </table>
+            </div>
+          </div>
+        </div>
+
+
+        {% comment %} footer {% endcomment %}
+        <section id="footer">
+            {% comment %} <img src="{% static 'images/customer/wave4.png' %}" class="footer-img"> {% endcomment %}
+            <div class="container fixed-bottom">
+                <div class="row text-center">
+                    <hr>
+                    <p class="copyright">Website Done by IDK Gang</p> 
+                </div>
+            </div>
+        </section>
+    </body>
+</html>

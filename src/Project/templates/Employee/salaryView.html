@@ -1,0 +1,56 @@
+{% extends 'emp/main.html' %} {% load static %}{% block content %}
+<section id="banner">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <p class="promo-title5">Salary list of Employee's</p>
+      </div>
+    </div>
+  </div>
+  <img src={% static 'images/wave3.png' %} class="bottom-img">
+</section>
+
+<div class="container-fluid">
+  <form method="get" class="d-flex">
+    {{myFilters.form.id}}&nbsp{{myFilters.form.ename}}&nbsp&nbsp
+    <button class="btn btn-outline-success" type="submit">Search</button>
+  </form>
+
+  &nbsp
+  <div class="container">
+    <table class="table table-bordered table-striped">
+      <tr>
+        <th>Employee ID</th>
+        <th>Employee Name</th>
+        <th>Basic Salary</th>
+        <th>OT Hours</th>
+        <th>OT Rate</th>
+        <th>Allowances(OT+others)</th>
+        <th>Net Salary</th>
+      </tr>
+      {% for i in employee %}
+      <tr>
+        <td>{{i.id}}</td>
+        <td>{{i.ename}}</td>
+        <td>{{i.basicsalary}}</td>
+        <td>{{i.othours}}</td>
+        <td>{{i.otrate}}</td>
+        <td>{{i.allowances}}</td>
+        <td>{{i.netsalary}}</td>
+
+        <td>
+          <a
+            class="btn-success btn-sm"
+            type="button"
+            href="{% url 'salaryUpdate' i.id %}"
+          >
+            Update</a
+          >
+        </td>
+      </tr>
+      {% endfor %}
+    </table>
+  </div>
+</div>
+
+{% endblock %}

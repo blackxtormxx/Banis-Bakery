@@ -1,0 +1,43 @@
+fieldset{
+    position: absolute;
+    
+    left: 300;
+    width: 600;
+    height: 400;
+    top: 50;
+    font-size: 23;
+    background-color: rgb(189, 194, 193);
+
+}
+.btn1{
+
+    background-color: black;
+        border: none;
+        text-align: left;
+        display: inline-block;
+        font-size: 16;
+        margin: 4px 2px;
+        padding: 15px 32px;
+        color:white;
+        cursor: pointer;
+        left: 50;
+        position: absolute;
+       
+        top: 350;
+    }
+    .btn2{
+        background-color: black;
+        border: none;
+      
+        display: inline-block;
+        font-size: 16;
+        margin: 4px 2px;
+        padding: 15px 32px;
+        color:white;
+        cursor: pointer;
+        text-align: right;
+       left: 450;
+        position: absolute; 
+        top: 350;
+    }
+   

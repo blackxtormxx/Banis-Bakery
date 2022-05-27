@@ -1,0 +1,92 @@
+{% extends 'FoodItem/main.html' %}
+{% load static %}
+{% block content %}
+
+<h1 style="margin-left: 50%; margin-bottom: 50px;">Food Details </h1>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="card">
+                <div class="card-header">
+                    Categories
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                        <a href="{% url 'index' %}">All</a>
+                    </li>
+                    {% for category in category %}
+                    <li class=" list-group-item">
+                        <a href="{% url 'index' %}?category={{category.Name}}">
+                            {{category.Name}}
+                        </a>
+                    </li>
+                    {% endfor %}
+
+
+                    <a href="{% url 'upload-Item' %}" class="btn btn-dark btn-block btn-sm m-1">Add New Food</a>
+                  
+                </ul>
+            </div>
+
+        </div>
+        <div class="col-md-9">
+            <div class="row">
+
+                <table class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th>Item Name</th>
+                            <th>Category</th>
+                            <th>Discription</th>
+                            <th>Price</th>
+                            <th>Image</th>
+                            <th>Edit</th>
+                            <th>Delete</th>
+                        </tr>
+                    </thead>
+                <tbody>
+
+                    {% for items in items %}
+
+                        <tr>
+                            <td>{{items.name}}</td>
+                            <td>{{items.category}}</td>
+                            <td>{{items.discription}}</td>
+                            <td>Rs.{{items.price}}</td>
+                            {%if items.picture %}
+                            <td>
+                                <img class="photo" src="{{items.picture.url}}" >
+                            </td>
+                            {% else %}
+                                <td>
+                                    <img  class="photo" src="{{items.picture.url}}">
+                                </td>
+                    {% endif %}
+                            <td>
+                                <a href="update/{{items.id}}" class="btn btn-success" id = '{{items.id}}'>edit</a>
+                            </td>
+                            <td>
+                                <a href="delete/{{items.id}}" class="btn btn-danger" id = '{{items.id}}'>delete</a>
+                            </td>
+                        </tr>
+
+                
+
+               
+               
+                {% endfor %}
+
+                </tbody>
+            </table>
+
+
+
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,66 @@
+{% extends 'emp/main.html' %} {% load static %} {% block content %}
+<section id="banner">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <p class="promo-title5">List of Employees</p>
+      </div>
+    </div>
+  </div>
+  <img src={% static 'images/wave3.png' %} class="bottom-img">
+</section>
+<div class="container-fluid">
+  <form method="get" class="d-flex">
+    {{myFilters.form.id}}&nbsp{{myFilters.form.ename}}&nbsp&nbsp
+    <button class="btn btn-outline-success" type="submit">Search</button>
+  </form>
+
+  &nbsp {% for message in messages %}
+  <center>
+    <div id="messages " class="alert alert-success">{{message}}</div>
+  </center>
+  {% endfor %}
+</div>
+<div class="container">
+  <table class="table table-bordered table-striped">
+    <tr>
+      <th>Employee ID</th>
+      <th>Employee Name</th>
+      <th>Email</th>
+      <th>Address</th>
+      <th>Contact Number</th>
+      <th>Gender</th>
+      <th>Job Title</th>
+    </tr>
+    {%for i in employee%}
+    <tr>
+      <td>{{i.id}}</td>
+      <td>{{i.ename}}</td>
+      <td>{{i.email}}</td>
+      <td>{{i.address}}</td>
+      <td>{{i.contactnumber}}</td>
+      <td>{{i.gender}}</td>
+      <td>{{i.jobtitle}}</td>
+      <td>
+        <a
+          class="btn-success btn-sm"
+          type="button"
+          href="{% url 'updateEmployee' i.id %}"
+        >
+          Update</a
+        >
+      </td>
+      <td>
+        <a
+          class="btn-danger btn-sm"
+          type="button"
+          href="{% url 'deleteEmployee' i.id %}"
+        >
+          Delete</a
+        >
+      </td>
+    </tr>
+    {% endfor %}
+  </table>
+</div>
+{% endblock %}

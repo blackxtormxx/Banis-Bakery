@@ -1,0 +1,127 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>BANIS BAKERS</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="{% static 'admin_main.css' %}">
+    <! ––body id="bg" style="background-image: url('{% static "images/Background1.jpg"%}')"; ––>
+   
+
+</head>
+
+<body>
+	<style>
+    .hello-msg{
+        font-size: 18px;
+        color: #fff;
+        margin-right: 20px;
+    }
+    </style>
+
+    <nav class="navbar navbar-expand-lg navbar navbar-light ">
+        <img src="{% static 'images/logo.png' %}" width=50px>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+            {% if request.user.is_staff %}
+            <li class="nav-item active">
+                <a class="nav-link" href="{% url 'home' %}">Dashboard</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'products' %}">Products</a>
+            </li>
+            {% endif %}
+            </ul>
+        </div>
+
+
+        <span class="hello-msg">Hello, {{request.user}}</span>
+        <span ><a  class="hello-msg" href="{% url 'logout' %}">Logout</a></span>
+
+    </nav>
+
+<br>
+
+<div class="row">
+	<div class="col-md-5">
+		<h3><center>SUPPLIER DETAILS</center></h3>
+		<hr>
+		<div class="card bg-light card-body">
+			
+			<table class="table table-sm">
+				<tr>
+					<th></th>
+					<th>Supplier</th>
+					<th>Phone Number</th>
+				</tr>
+
+				{% for supplier in suppliers %}
+					<tr>
+						<td><a class="btn btn-sm btn-secondary" href="{% url 'supplier' supplier.id %}">View Details</a></td>
+						<td>{{supplier.name}}</td>
+						<td>{{supplier.phone}}</td>
+					</tr>
+				{% endfor %}
+
+			</table>
+		
+			<a class="btn btn-success  btn-sm btn-block" href="{% url 'logout' %}">Create a Supplier</a>
+		</div>
+	</div>
+
+	<div class="col-md-7">
+		<h3><center>ORDERS HISTORY</center></h3>
+		<hr>
+		<div class="card bg-light card-body">
+			
+			<table class="table table-sm">
+				<tr>
+					<th>Supplier</th>
+					<th>Product</th>
+					<th>Quantity</th>
+					<th>Date Orderd</th>
+					<th>Status</th>
+					<th>Update</th>
+					<th>Remove</th>
+				</tr>
+
+				{% for order in orders %}
+					<tr>
+						<td>{{order.supplier.name}}</td>
+						<td>{{order.product}}</td>
+						<td>{{order.quantity}} {{order.product.category}}</td>
+						<td>{{order.date_created}}</td>
+						<td>{{order.status}}</td>
+						<td><a class="btn btn-sm btn-info" href="{% url 'update_order' order.id %}">Update</a></td>
+						<td><a class="btn btn-sm btn-danger" href="{% url 'delete_order' order.id %}">Delete</a></td>
+
+					</tr>
+					
+				{% endfor %}
+			</table>
+			<a class="btn btn-success  btn-sm btn-block" href="{% url 'create_order' %}">Create a new order</a>
+		</div>
+	</div>
+</div>
+
+
+{%  include 'accounts/status.html' %}
+
+<hr>
+{% comment %} footer {% endcomment %}
+        <section id="footer">
+            {% comment %} <img src="{% static 'images/customer/wave4.png' %}" class="footer-img"> {% endcomment %}
+            <div class="container fixed-bottom">
+                <div class="row text-center">
+                    <hr>
+                    <p class="copyright">Website Done by IDK Gang</p> 
+                </div>
+            </div>
+        </section>
+    </body>
+</html>

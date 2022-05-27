@@ -1,0 +1,44 @@
+.form{
+	background:#7eb1a9;
+	width:40%;
+	margin:auto;
+	color:white;
+	font-size:18px;
+	padding:40px;
+	border-radius:20px;
+	color:#fff;
+	box-sizing:border-box;
+	margin-top:5%;
+	margin-bottom:4%;
+	
+}
+
+.table1{
+
+	width:100%;
+	margin:auto;
+	color:white;
+	font-size:18px;
+	padding:40px;
+	border-radius:20px;
+	color:rgb(5, 5, 5);
+	box-sizing:border-box;
+	margin-top:5%;
+	margin-bottom:4%;
+	
+}
+
+input[type=text],input[type=file],input[type=number], select{
+	width:100%;
+	padding:12px 5px;
+	border:none;
+	border-radius:5px;
+	outline:none;
+	margin:5px;
+	font-size:15px;
+	box-sizing:border-box;
+	background:rgba(0,0,0,0.3);
+	color:rgb(0, 0, 0);
+	border:solid white;
+
+}

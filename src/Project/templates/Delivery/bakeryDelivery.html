@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+{% load static %}
+
+<html>
+<head>
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	
+	<title> Bakery delivery Page </title>
+	<link rel="stylesheet" type="text/css" href= "{% static '/css/bakeryDelivery.css' %}">
+</head>
+<body>
+	<div class="header1">
+  <div class="title">
+	<h1 class="title1" style="font-family:Constantia" ;>Bakery Delivery Service </h1>
+
+	
+</div>
+
+<div class="container">
+	
+	<ul class="menu"><b>
+	  <li class="flow"><a href="{% url 'choon' %}">Choon pan Delivery</a></li>
+	  <li class="flow"><a href="{% url 'customerorder' %}">Order Delivery</a></li>
+	  <li class="flow"><a href="{% url 'shop' %}">Shop Delivery</a></li></b>
+	  
+	  <span class="hello_msg" >Hello, </span>
+	  <span ><a class="hello_msg" href="{% url 'logout' %}">Logout</a></span>
+
+	</ul>
+	</div>
+</div>
+
+
+</body>
+</html>
+

@@ -1,0 +1,26 @@
+{% extends 'emp/main.html' %} {% load static %} {% block content %}
+<section id="banner">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <p class="promo-title5">Admin Controls</p>
+      </div>
+    </div>
+  </div>
+  <img src={% static 'images/wave3.png' %} class="bottom-img">
+</section>
+<div class="card-body">
+  &nbsp &nbsp &nbsp
+  <div class="d-grid gap-2 col-6 mx-auto">
+    <a class="btn btn-primary" type="button" href="{% url 'addEmployee' %}"
+      >Add Employee</a
+    >
+    <a class="btn btn-primary" type="button" href="{% url 'viewEmployee' %}"
+      >View Employee</a
+    >
+    <a class="btn btn-primary" type="button" href="{% url 'salaryView' %}"
+      >View Salary</a
+    >
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,80 @@
+{% extends 'FoodItem/main.html' %}
+{% block content %}
+{% load static %}
+
+
+<div class="container">
+       
+    <div class="contact-box">
+        <div class="contact-left">
+           <span class="message">
+                Send Us A Message
+            </span>
+            <form>
+                
+                <div class="input-row">
+                    <div class="input-group">
+                        <label>NAME</label>
+                        <input type="text" placeholder="Isuru Chathuranga" id="name" onfocus="Name()"required>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label>PHONE</label>
+                        <input type="text" placeholder="+94 771 555555" required>
+                    </div>
+                
+                
+</div>
+                <div class="input-row">
+                    <div class="input-group">
+                        <label>EMAIL</label>
+                        <input type="email" placeholder="isuruchathuranga@gmail.com" required>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label>SUBJECT</label>
+                        <input type="text" placeholder="Demo" required>
+                    </div>
+                    
+                    
+</div>
+                        
+                <label>MESSAGE</label>                 
+                <textarea rows="8" placeholder="Your Message"></textarea>
+                
+                <button type="submit" class = "buttons" required id="msg" onfocus ="Wrong">SEND</button>
+            </form>
+        </div>
+        <div class="contact-right">
+            
+            <div class = "Information">
+           
+                
+                <i class = "fas fa-envelope-open"></i> 
+                <span class = "txt">EMAIL</span><br>
+                <span class = "text" > banisbakers2021@itp.lk</span><br><br>
+            </div>
+            
+            <div class = "Information">				
+                <i class = "fas fa-phone"></i>
+                <span class = "txt">PHONE</span><br>
+                <span class = "text"> 011 7654321</span>                   
+            </div>
+            
+            
+            <div class = "Information">				
+                <i class = "fas fa-map-marker-alt"></i>
+                <span class = "txt">ADDRESS</span><br>
+                <span  class = "text"> Banis bakery, No.1,Colombo 7, Colombo</span>
+                <span class = "text">Sri Lanka  </span> <br><br>  
+                          
+            
+            </div>
+            
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock %}

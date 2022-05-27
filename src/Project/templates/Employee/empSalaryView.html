@@ -1,0 +1,25 @@
+{% extends 'emp/main.html' %} {% block content %}{% csrf_token %}
+<h3>Helloo!</h3>
+<div class="container">
+  <table class="table table-bordered">
+    <tr>
+      <th>Employee ID</th>
+      <th>Employee Name</th>
+      <th>Basic Salary</th>
+      <th>OT Hours</th>
+      <th>Allowances(OT+others)</th>
+      <th>Net Salary</th>
+    </tr>
+    {% for i in employee %}
+    <tr>
+      <td>{{i.id}}</td>
+      <td>{{i.ename}}</td>
+      <td>{{i.basicsalary}}</td>
+      <td>{{i.othours}}</td>
+      <td>{{i.allowances}}</td>
+      <td>{{i.netsalary}}</td>
+    </tr>
+    {% endfor %}
+  </table>
+</div>
+{% endblock %}

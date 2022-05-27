@@ -1,0 +1,32 @@
+{% extends 'FoodItem/main.html' %}
+{% block content %}
+{% load static %}
+    
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col">
+
+                <a href="{% url 'view' %}" class="btn btn-dark my-3">Go Back</a>
+
+                <div style="height: 90vh;">
+                    <div class="card_item">
+                        <img style="max-width: 60%; max-height: 110%;" src="{{item.picture.url}}" alt="Card image cap">
+                        <br>
+                        <div class="card-body">
+                          <h1 class="card-title" style="color: blue;">{{item.name }}</h1>
+                          <br>
+                          <h3 class="card-text"> Rs. {{item.price }}</h3>
+                          <br>
+                          <p class="card-text "style="color:red; font-size:25px" >{{item.discription }}</p>
+                        </div>
+                    <!--<img style="max-width: 50%; max-height: 100%;" src="{{item.picture.url}}">-->
+
+                   
+                </div>
+
+            </div>
+        </div>
+    </div>
+ </div>
+
+{% endblock %}

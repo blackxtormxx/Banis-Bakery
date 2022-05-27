@@ -1,0 +1,64 @@
+{% extends 'FoodItem/main.html' %}
+{% block content %}
+{% load static %}
+    
+    
+    
+<form  class = "form" method = 'POST' enctype="multipart/form-data">
+    <h4 class="display-3" style="color: black;font-size:50px;
+    text-align:center;
+    font-family:arial;
+    ">Add New Food</h4>
+    {% csrf_token %}
+    <table class="table1" >
+        <tbody>
+        
+        
+        <tr>
+            <th>Name</th>
+            <td><input type="text" name="name" maxlength="55" pattern="[A-Za-z]+" required="Plese enter name" id="id_name"></td>
+        </tr>
+
+        <tr>
+            <th>Picture</th>
+            <td><input type="file" name="picture" accept="image/*" id="id_picture"></td>
+        </tr>
+
+        <tr>
+            <th>Price</th>
+            <td><input type="number" name="price" step="0.01" required="" id="id_price"></td>
+        </tr>
+
+        <tr>
+            <th>Discription</th>
+            <td><input type="text" name="discription" value="Available" maxlength="250" required="" id="id_discription"></td>
+        </tr>
+
+        <tr>
+            <th>Category</th>
+            <td><select name="category" required="" id="id_category">
+            <option value="" selected="">---------</option>
+
+            <option value="1">Cakes</option>
+
+            <option value="2">Buns</option>
+
+            <option value="3">Cutlet and Rolls</option>
+
+            <option value="4">Sandwiches</option>
+
+            <option value="5">Bread</option>
+
+            <option value="6">Cookies</option>
+
+            </select></td>
+        </tr>
+    
+       
+    </tbody>
+    </table>
+    <button type="submit" class="btn btn-danger">Submit</button> 
+    <a href="{% url 'index' %}" class="btn btn-danger">Back</a>   
+</form>
+
+{% endblock %}

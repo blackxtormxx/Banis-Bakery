@@ -1,0 +1,180 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Banis Bakery</title>
+        <link rel="stylesheet" href="{% static '/main.css' %}">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css">
+        
+    
+    </head>
+
+    <body>
+        {% comment %} navbar {% endcomment %}
+        <section id="nav-bar">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="{% url 'home_page' %}"><img src="{% static 'images/logo2.png' %}"></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="{% url 'home_page' %}">Home</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Shop
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <li><a class="dropdown-item" href="#">Products</a></li>
+                                <li><a class="dropdown-item" href="{% url 'create_CustomOrder' %}">Custom Order</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">About Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Contact</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link login" href="#">Sign in</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            </nav>
+        </section>
+
+        {% comment %} <!-----------------top body part1-----------------> {% endcomment %}
+        <section id="banner">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <p class="promo-title5">Special Order</p>
+                        <p>Do you need to make your own custom item<br>if so fill the form below</p>
+                    </div>
+                </div>
+            </div>
+            <img src="{% static 'images/wave3.png' %}" class="bottom-img">
+        </section>
+
+
+        {% comment %} Special Orders(Custom Products) {% endcomment %}
+        <section id="spec-order-form">
+            <div class="container">
+                <form action="" method="POST" class="row g-3" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="row">
+
+                        <div class="col-md-12">
+                            <label for="formName" class="form-label">Name</label>
+                            {% comment %} <input type="text" class="form-control" placeholder="" id="formName"  aria-label="Name"> {% endcomment %}
+                            {{form.name}}
+                        </div>
+                        
+                        <div class="col-md-12">
+                            <label for="inputEmail4" class="form-label">Email</label>
+                            {% comment %} <input type="email" class="form-control" placeholder="example@email.com" id="inputEmail4"> {% endcomment %}
+                            {{form.email}}
+                        </div>
+                        
+                        <div class="col-md-12">
+                            <label for="inputAddress" class="form-label">Address</label>
+                            {% comment %} <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main Street"> {% endcomment %}
+                            {{form.address}}
+                        </div>
+
+                        <div class="col-md-4">
+                            <label for="inputPhone" class="form-label">Phone Number</label>
+                            {% comment %} <input type="text" class="form-control" id="inputPhone"> {% endcomment %}
+                            {{form.phone}}
+                        </div>
+                        
+                        <div class="col-md-12">
+                        <div class="form-label">
+                            <div class="form-check">
+                            <label class="form-label" for="inputDeliveryType">Delivery Type</label>
+                                {% comment %} <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1"> {% endcomment %}
+                                {{form.delivery}}
+                                {% comment %} <label class="form-check-label" for="flexRadioDefault1">
+                                    Pick Up
+                                </label> {% endcomment %}
+                            </div>
+                        </div>
+                        </div>
+
+                        <div class="col-12">
+                            <div class="mb-3">
+                                <label for="exampleFormControlTextarea1" class="form-label">Describe Your Product</label>
+                                {% comment %} <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea> {% endcomment %}
+                                {{form.description}}
+                            </div>
+                        </div>
+
+                        <div class="col-2">
+                            <input type="submit" class="btn btn-primary " name="Submit">
+                        </div>
+
+                    </div>
+                </form>
+
+            </div>
+        </section>
+
+
+        <script>
+            
+            //Query All input fields
+            var form_fields = document.getElementsByTagName('input')
+            form_fields[1].placeholder='Username..';
+            form_fields[2].placeholder='example@email.com..';
+            form_fields[3].placeholder='1234 Main Street...';
+            form_fields[4].placeholder='';
+
+
+            for (var field in form_fields){	
+                form_fields[field].className += ' form-control'
+            }
+        </script>
+
+        {% comment %} footer {% endcomment %}
+        <section id="footer">
+            <img src="{% static 'images/wave4.png' %}" class="footer-img">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4 footer-box">
+                        <img src="{% static 'images/logo2.png' %}">
+                        <p>Welcome to <i>BANIS</i><br>buy banis, buy banis, buy banis, buy banis, buy banis,
+                            buy banis, buy banis, buy banis, buy banis, buy banis, buy banis, </p>
+
+                    </div>
+                    <div class="col-md-4 footer-box">
+                        <p><b>Contact us</b></p>
+                        <p><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-telephone-fill" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z"/>
+                        </svg> 011 7654321</p>
+                        <p><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-map-fill" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M16 .5a.5.5 0 0 0-.598-.49L10.5.99 5.598.01a.5.5 0 0 0-.196 0l-5 1A.5.5 0 0 0 0 1.5v14a.5.5 0 0 0 .598.49l4.902-.98 4.902.98a.502.502 0 0 0 .196 0l5-1A.5.5 0 0 0 16 14.5V.5zM5 14.09V1.11l.5-.1.5.1v12.98l-.402-.08a.498.498 0 0 0-.196 0L5 14.09zm5 .8V1.91l.402.08a.5.5 0 0 0 .196 0L11 1.91v12.98l-.5.1-.5-.1z"/>
+                        </svg>Banis bakery, No.1,<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Colombo 7, Colombo </p>
+                        <p><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-envelope-fill" viewBox="0 0 16 16">
+                            <path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555zM0 4.697v7.104l5.803-3.558L0 4.697zM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757zm3.436-.586L16 11.801V4.697l-5.803 3.546z"/>
+                        </svg>banisbakers2021@itp.lk</p>
+                    </div>
+                    <div class="col-md-4 footer-box">
+                        <p><b>Shop</b></p>
+                        <p><a href="#">Products</a></p>
+                        <p><a href="{% url 'create_CustomOrder' %}">Special Orders</a></p>
+                    </div>
+                </div>
+                <hr>
+                <p class="copyright">Website Done by IDK Gang</p>
+            </div>
+        </section>
+    </body>
+
+</html> 

@@ -1,0 +1,403 @@
+{% load static %}
+<!DOCTYPE html lang="en">
+
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>salary</title>
+    
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css">
+
+        <style>
+            *{
+                margin: 0;
+                padding: 0;
+            }
+            body{
+                font-family: sans-serif;
+                
+            }
+            #nav-bar{
+                position: sticky;
+                top: 0;
+                z-index: 10;
+            }
+            .navbar{
+                background-image: linear-gradient(to right, #e7b565, #e0a038);
+                padding: 0 !important;
+            }
+            .dropdown ul{
+                background-color: #e7b565;
+                border: 1px solid #b0771c;
+            }
+            .dropdown ul a:hover{
+                background-color: #e7b565;
+                color: white;
+                font-weight: 500;
+            }
+            .navbar-brand img{
+                height: 50px;
+                padding-left: 20px;
+                margin-right: 20px;
+            }
+            .navbar-nav li{
+                padding: 0 5px;
+            }
+            .navbar-nav li a{
+                color: black !important;
+                font-weight: 400;
+            }
+            .login{
+                border: 1px solid #9a6818;
+                border-radius: 10px;
+            }
+            .navbar-toggler{
+                outline: none !important;
+            }
+            
+            /*banner(body main p1) section*/
+            #banner{
+                background-image: linear-gradient(to right, #e7b565, #e0a038);
+                color: black;
+                padding-top: 1%;
+            }
+            .promo-title{
+                font-size: 40px;
+                font-weight: 400;
+                margin-top: 200px;
+            }
+            .promo-title5{
+                font-size: 40px;
+                font-weight: 400;
+                margin-top: 50px;
+            }
+            .img-fluid{
+                width: 500px;
+                padding-bottom: 5%;
+            }
+            .bottom-img{
+                width: 100%;
+                height: 200px;
+            }
+            /*body part 2 - 1st card set*/
+            #sample-products{
+                padding: 80px 0;
+            }
+            .product-img{
+                width: 200px;
+                margin-top: 20px;
+            }
+            .sample-products{
+                padding: 20px;
+            }
+            .sample-products h4{
+                padding: 5px;
+                margin-top: 25px;
+                text-transform: uppercase;
+            }
+            .title2::before{
+                content: '';
+                background: #e7b561;
+                height: 5px;
+                width: 200px;
+                margin-left: auto;
+                margin-right: auto;
+                display: block;
+                transform: translateY(63px);
+            }
+            /*
+            .title2::after{
+                content: '';
+                background: #e7b561;
+                height: 10px;
+                width: 50px;
+                margin-left: auto;
+                margin-right: auto;
+                margin-bottom: 40px;
+                display: block;
+                transform: translateY(8px);
+            }*/
+            #sample-products .btn-primary{
+                box-shadow: none;
+                padding: 8px 25px;
+                border: none;
+                border-radius: 20px;
+                background-image: linear-gradient(to right, #e7b565, #e3aa4f);
+                color: black;
+            }
+            #sample-products .btn-primary:hover{
+                box-shadow: none;
+                padding: 8px 25px;
+                border: none;
+                border-radius: 20px;
+                background-image: linear-gradient(to right, #f53d3d, #aa0909);
+                color: white;
+            }
+            
+            #custom-orders{
+                background-image: linear-gradient(to right, #fff4e5, #fff4e5);
+                padding-top: 0.5%;
+            }
+            .title3{
+                text-transform: uppercase;
+                font-size: 40px;
+                font-weight: 600;
+                margin-top: 8%;
+            }
+            .cus-title{
+                font-size: 25px;
+                /*font-weight: 400;*/
+                margin-top: 200px;
+            }
+            .title3::before{
+                content: '';
+                background: #e7b561;
+                height: 5px;
+                width: 550px;
+                margin-left: auto;
+                margin-right: auto;
+                display: block;
+                transform: translateY(63px);
+            }
+            .img-fluid2{
+                width: 400px;
+                padding-bottom: 5%;
+                margin-top: 40px;
+            }
+            #custom-orders .btn-primary{
+                box-shadow: none;
+                padding: 8px 25px;
+                border: none;
+                border-radius: 20px;
+                background-image: linear-gradient(to right, #e7b565, #e3aa4f);
+                color: black;
+            }
+            #custom-orders .btn-primary:hover{
+                box-shadow: none;
+                padding: 8px 25px;
+                border: none;
+                border-radius: 20px;
+                background-image: linear-gradient(to right, #f53d3d, #aa0909);
+                color: white;
+            }
+            /*customer reviews*/
+            #cus-reviews{
+                margin: 100px 0;
+            }
+            .title4{
+                text-transform: uppercase;
+                font-size: 40px;
+                font-weight: 600;
+                margin-top: 8%;
+                margin-bottom: 30px;
+                padding-bottom: 20px;
+            }
+            .title4::before{
+                content: '';
+                background: #e7b561;
+                height: 5px;
+                width: 150px;
+                margin-left: auto;
+                margin-right: auto;
+                display: block;
+                transform: translateY(63px);
+            }
+            .cus-reviews{
+                border-left: 4px solid #e7b565;
+                margin-top: 50px;
+                margin-bottom: 50px;
+            }
+            .cus-reviews img{
+                height: 80px;
+                width: 80px;
+                border-radius: 50%;
+                margin: 0 10px;
+            }
+            .user-details{
+                display: inline-block;
+                font-size: 12px;
+            }
+            
+            #footer{
+                background-image: linear-gradient(to right, #e7b565, #e0a038);
+                color: black;
+            }
+            .footer-img{
+                /*background-image: linear-gradient(to right, #e7b565, #e0a038);*/
+                width: 100%;
+                height: 100px;
+            
+            }
+            .footer-box{
+                padding: 20px;
+            }
+            .footer-box img{
+                width: 120px;
+                margin-bottom: 20px;
+            }
+            .footer-box .fa{
+                margin-right: 8px;
+                font-size: 25px;
+                height: 40px;
+                width: 40px;
+                text-align: center;
+                padding-top: 7px;
+                border-radius: 2px;
+            }
+            .footer-box a{
+                text-decoration: none;
+                color: black;
+            }
+            .footer-box a:hover{
+                font-weight: 500;
+                color: black;
+            }
+            .footer-box svg{
+                margin-right: 10px;
+            }
+            hr{
+                background-color: #ffffff;
+            }
+            .copyright{
+                margin-bottom: 0;
+                padding-bottom: 20px;
+                text-align: center;
+            }
+            /*custom order form*/
+            #spec-order-form .btn-primary{
+                box-shadow: none;
+                padding: 8px 25px;
+                border: none;
+                border-radius: 20px;
+                background-image: linear-gradient(to right, #e7b565, #e3aa4f);
+                color: #664919;
+                font-weight: bold;
+            }
+            #spec-order-form .btn-primary:hover{
+                box-shadow: none;
+                padding: 8px 25px;
+                border: none;
+                border-radius: 20px;
+                background-image: linear-gradient(to right, #dd9522, #9a6818);
+                color: white;
+                font-weight: bold;
+            }
+            
+        </style>
+        
+
+        <body>
+
+            <!-----------------navigation bar----------------->
+<section id="nav-bar">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#"><img src="{% static 'images/logo2.png' %}"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Shop
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <li><a class="dropdown-item" href="#">Products</a></li>
+                            <li><a class="dropdown-item" href="spec-order.html">Custom Order</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link login" href="{% url 'login' %}">Sign in</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</section>
+
+<!-----------------top body part1----------------->
+<section id="banner">
+    <div class="container">
+    <div class="row">
+    <div class="col-md-6">
+        <p class="promo-title">Welcome to <i>BANIS</i></p>
+        <p>buy banis, buy banis, buy banis, buy banis, buy banis, buy banis, buy banis, buy banis, buy banis, buy banis, buy banis, </p>
+    </div>
+        <div class="col-md-6 text-center">
+            <img src="{% static 'images/logo2.png' %}" class="img-fluid">
+        </div>
+    </div>
+    </div>
+    <img src="{% static 'images/wave3.png' %}" class="bottom-img">
+</section>
+
+
+
+
+
+
+            <form action="calculation" align="center">
+            <h1>Delivery Charges</h1><br>
+            <p>Number of km : <input type="number" name="nkm" id="salary" required></p>
+            <p>Amount per km : <input type="number" name="amount" id="amounts" value="10"></p>
+
+            
+            <input type="submit">
+            
+            </form>
+
+            <!-----------------footer----------------->
+<section id="footer">
+    <img src="{% static 'images/wave4.png' %}" class="footer-img">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 footer-box">
+                <img src="{% static 'images/logo2.png' %}">
+                <p>Welcome to <i>BANIS</i><br>buy banis, buy banis, buy banis, buy banis, buy banis,
+                    buy banis, buy banis, buy banis, buy banis, buy banis, buy banis, </p>
+
+            </div>
+            <div class="col-md-4 footer-box">
+                <p><b>Contact us</b></p>
+                <p><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-telephone-fill" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z"/>
+                </svg> 011 7654321</p>
+                <p><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-map-fill" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M16 .5a.5.5 0 0 0-.598-.49L10.5.99 5.598.01a.5.5 0 0 0-.196 0l-5 1A.5.5 0 0 0 0 1.5v14a.5.5 0 0 0 .598.49l4.902-.98 4.902.98a.502.502 0 0 0 .196 0l5-1A.5.5 0 0 0 16 14.5V.5zM5 14.09V1.11l.5-.1.5.1v12.98l-.402-.08a.498.498 0 0 0-.196 0L5 14.09zm5 .8V1.91l.402.08a.5.5 0 0 0 .196 0L11 1.91v12.98l-.5.1-.5-.1z"/>
+                </svg>Banis bakery, No.1,<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Colombo 7, Colombo </p>
+                <p><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-envelope-fill" viewBox="0 0 16 16">
+                    <path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555zM0 4.697v7.104l5.803-3.558L0 4.697zM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757zm3.436-.586L16 11.801V4.697l-5.803 3.546z"/>
+                </svg>banisbakers2021@itp.lk</p>
+            </div>
+            <div class="col-md-4 footer-box">
+                <p><b>Shop</b></p>
+                <p><a href="#">Products</a></p>
+                <p><a href="spec-order.html">Special Orders</a></p>
+            </div>
+        </div>
+        <hr>
+        <p class="copyright">Website Done by IDK Gang</p>
+    </div>
+</section>
+
+            
+       
+        </body>
+    </head>
+</html>
+{% endblock %}

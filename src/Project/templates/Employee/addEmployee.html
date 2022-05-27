@@ -1,0 +1,101 @@
+{% extends 'emp/main.html' %}
+{% load static %}
+{% block content %}
+
+<section id="banner">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <p class="promo-title5">Employee Registration</p>
+                <p>Register employees here.</p>
+            </div>
+        </div>
+    </div>
+    <img src={% static 'images/wave3.png' %} class="bottom-img">
+</section>
+&nbsp
+&nbsp
+
+<div class="container h-100">
+<div class="d-flex justify-content-center h-100">
+<div class="form_card">
+  <form  method="POST">
+    {% csrf_token %} 
+    <div class="row mb-3">
+      <label class="col-sm-2 col-form-label">Employee's Name</label>
+      <div class="col-sm-10">
+        {{form.ename}}
+      </div>
+    </div>
+    <div class="row mb-3">
+      <label class="col-sm-2 col-form-label">Email</label>
+      <div class="col-sm-10">
+        {{form.email}}
+      </div>
+    </div>
+    <div class="row mb-3">
+      <label class="col-sm-2 col-form-label">Address</label>
+      <div class="col-sm-10">
+        {{form.address}}
+      </div>
+    </div>
+    <div class="row mb-3">
+      <label class="col-sm-2 col-form-label">Contact Number</label>
+      <div class="col-sm-10">
+        {{form.contactnumber}}
+      </div>
+    </div>
+      <div class="row mb-3">
+      <label class="col-sm-2 col-form-label">Gender</label>
+      <div class="col-sm-10">
+        {{form.gender}}
+      </div>
+    </div>
+    <div class="row mb-3">
+      <label class="col-sm-2 col-form-label">Job Title</label>
+      <div class="col-sm-10">
+        {{form.jobtitle}}
+      </div>
+    <div class="row mb-3">
+      <label class="col-sm-2 col-form-label">Basic Salary</label>
+      <div class="col-sm-10">
+        {{form.basicsalary}}
+      </div>
+    </div>
+    <div class="row mb-3">
+      <label class="col-sm-2 col-form-label">OT Hours</label>
+      <div class="col-sm-10">
+        {{form.othours}}
+      </div>
+    </div>
+    <div class="row mb-3">
+      <label class="col-sm-2 col-form-label">OT Rate</label>
+      <div class="col-sm-10">
+        {{form.otrate}}
+    </div>
+    </div>
+    <div class="row mb-3">
+      <label class="col-sm-2 col-form-label">Allowances</label>
+      <div class="col-sm-10">
+        {{form.allowances}}
+      </div>
+    </div>
+    \<div class="row mb-3">
+      <label class="col-sm-2 col-form-label">Net salary</label>
+      <div class="col-sm-10">
+        {{form.netsalary}}
+      </div>
+    </div>  
+    <div class="row mb-3">
+     <button type="submit" class="btn btn-primary">Add</button>
+    </div> 
+  </form>
+  </div>
+</div>
+</div>
+</div>
+</div>
+&nbsp
+&nbsp
+
+{% endblock  %}

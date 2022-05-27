@@ -1,0 +1,44 @@
+.menu{
+
+	list-style-type:none;
+	margin-top:50px;
+	padding-left:80px;
+	background-color:#eee132;
+	overflow:hidden;
+	
+}
+.flow{
+	float:left;
+}
+li a{
+	display:block;
+	color: black ;;
+	text-align:center;
+	padding:10px 80px;
+	text-decoration:none;
+	font-family:arial;
+	font-size:20px;
+}
+li a:hover{
+	background-color:rgba(139, 145, 139, 0.377);
+}
+h1{
+    text-align: center;
+}
+body{
+	
+	background-size:cover;
+}
+
+body{
+   
+    height: auto;
+    width: auto;
+  
+
+}
+.hello_msg{
+	font-size: 15px;
+	color: white;
+	margin-right: 10px;
+}
