@@ -53,7 +53,9 @@ class RouteDetalisForm(forms.ModelForm):
 # Employee
 
 class addEmployeeform(ModelForm):
+    
     class Meta:
+    
         model = Employee
         fields = {'id', 'ename', 'email', 'address', 'contactnumber', 'gender',
                   'jobtitle', 'basicsalary', 'othours', 'otrate', 'allowances', 'netsalary'}
