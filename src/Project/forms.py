@@ -44,8 +44,6 @@ class CustomorderForm(ModelForm):
 
 
 
-
-
 class RouteDetalisForm(forms.ModelForm):
     class Meta:
         model = RouteDetails
