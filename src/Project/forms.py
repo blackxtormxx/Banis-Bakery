@@ -22,13 +22,6 @@ class CreateUserForm(UserCreationForm):
 
 # special order
 
-
-
-
-
-
-
-
 class CustomorderForm(ModelForm):
     class Meta:
         model = Customorder
@@ -38,18 +31,11 @@ class CustomorderForm(ModelForm):
         #     'delivery':forms.RadioSelect()
         # }
 
-
-
 # Delivery
 class RouteDetalisForm(forms.ModelForm):
     class Meta:
         model = RouteDetails
         fields = '__all__'
-
-
-
-
-
 
 # Employee
 
